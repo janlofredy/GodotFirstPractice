@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://l8hplywyorlj"]
+
+[ext_resource type="Script" path="res://MainPlayer.gd" id="1_hrch3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gh61q"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_neiaa"]
+
+[node name="MainPlayer" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2139, 0)
+script = ExtResource("1_hrch3")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.032, 6.605, 13.759)
+fov = 76.7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.213913, 0)
+shape = SubResource("CapsuleShape3D_gh61q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.213913, 0)
+mesh = SubResource("CapsuleMesh_neiaa")
+skeleton = NodePath("../../Floors/Floor/StaticBody3D/CollisionShape3D")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.218194, 0.666935, 0.712453, 0, -0.730043, 0.683401, 0.975905, -0.149114, -0.159291, 8.06807, 1.56181, -13.5175)
